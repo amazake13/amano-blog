@@ -65,7 +65,8 @@ export default async function PostPage({
 }: {
   params: { slug: string };
 }) {
-  const post = await getPost(params.slug);
+  const { slug } = await params;
+  const post = await getPost(slug);
 
   if (!post) {
     notFound();
